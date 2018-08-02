@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UserEditDlg" widgetVar="UserEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditUserTitle}">
+            <h:form id="UserEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{userController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditUserLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{userController.selected.email}" title="#{bundle.EditUserTitle_email}" />
+                        <p:outputLabel value="#{bundle.EditUserLabel_password}" for="password" />
+                        <p:inputText id="password" value="#{userController.selected.password}" title="#{bundle.EditUserTitle_password}" />
+                        <p:outputLabel value="#{bundle.EditUserLabel_nom}" for="nom" />
+                        <p:inputText id="nom" value="#{userController.selected.nom}" title="#{bundle.EditUserTitle_nom}" />
+                        <p:outputLabel value="#{bundle.EditUserLabel_prenom}" for="prenom" />
+                        <p:inputText id="prenom" value="#{userController.selected.prenom}" title="#{bundle.EditUserTitle_prenom}" />
+                        <p:outputLabel value="#{bundle.EditUserLabel_tel}" for="tel" />
+                        <p:inputText id="tel" value="#{userController.selected.tel}" title="#{bundle.EditUserTitle_tel}" />
+                        <p:outputLabel value="#{bundle.EditUserLabel_gender}" for="gender" />
+                        <p:inputText id="gender" value="#{userController.selected.gender}" title="#{bundle.EditUserTitle_gender}" />
+                        <p:outputLabel value="#{bundle.EditUserLabel_dateNaissance}" for="dateNaissance" />
+                        <p:inputText id="dateNaissance" value="#{userController.selected.dateNaissance}" title="#{bundle.EditUserTitle_dateNaissance}" />
+                        <p:outputLabel value="#{bundle.EditUserLabel_nbrCnx}" for="nbrCnx" />
+                        <p:inputText id="nbrCnx" value="#{userController.selected.nbrCnx}" title="#{bundle.EditUserTitle_nbrCnx}" />
+                        <p:outputLabel value="#{bundle.EditUserLabel_isAdmin}" for="isAdmin" />
+                        <p:inputText id="isAdmin" value="#{userController.selected.isAdmin}" title="#{bundle.EditUserTitle_isAdmin}" />
+                        <p:outputLabel value="#{bundle.EditUserLabel_tentativeRest}" for="tentativeRest" />
+                        <p:inputText id="tentativeRest" value="#{userController.selected.tentativeRest}" title="#{bundle.EditUserTitle_tentativeRest}" />
+                        <p:outputLabel value="#{bundle.EditUserLabel_passportNumber}" for="passportNumber" />
+                        <p:inputText id="passportNumber" value="#{userController.selected.passportNumber}" title="#{bundle.EditUserTitle_passportNumber}" />
+                        <p:outputLabel value="#{bundle.EditUserLabel_country}" for="country" />
+                        <p:inputText id="country" value="#{userController.selected.country}" title="#{bundle.EditUserTitle_country}" />
+                        <p:outputLabel value="#{bundle.EditUserLabel_nationality}" for="nationality" />
+                        <p:inputText id="nationality" value="#{userController.selected.nationality}" title="#{bundle.EditUserTitle_nationality}" />
+                        <p:outputLabel value="#{bundle.EditUserLabel_adress}" for="adress" />
+                        <p:inputText id="adress" value="#{userController.selected.adress}" title="#{bundle.EditUserTitle_adress}" />
+                        <p:outputLabel value="#{bundle.EditUserLabel_zipCode}" for="zipCode" />
+                        <p:inputText id="zipCode" value="#{userController.selected.zipCode}" title="#{bundle.EditUserTitle_zipCode}" />
+                        <p:outputLabel value="#{bundle.EditUserLabel_card}" for="card" />
+                        <p:selectOneMenu id="card" value="#{userController.selected.card}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cardController.itemsAvailableSelectOne}"
+                                           var="cardItem"
+                                           itemValue="#{cardItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{userController.update}" value="#{bundle.Save}" update="display,:UserListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UserEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UserEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PurchaseEditDlg" widgetVar="PurchaseEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPurchaseTitle}">
+            <h:form id="PurchaseEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{purchaseController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPurchaseLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{purchaseController.selected.id}" title="#{bundle.EditPurchaseTitle_id}" />
+                        <p:outputLabel value="#{bundle.EditPurchaseLabel_store}" for="store" />
+                        <p:inputText id="store" value="#{purchaseController.selected.store}" title="#{bundle.EditPurchaseTitle_store}" />
+                        <p:outputLabel value="#{bundle.EditPurchaseLabel_product}" for="product" />
+                        <p:inputText id="product" value="#{purchaseController.selected.product}" title="#{bundle.EditPurchaseTitle_product}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{purchaseController.update}" value="#{bundle.Save}" update="display,:PurchaseListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PurchaseEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PurchaseEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

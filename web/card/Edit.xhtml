@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CardEditDlg" widgetVar="CardEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCardTitle}">
+            <h:form id="CardEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cardController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCardLabel_cardNumber}" for="cardNumber" />
+                        <p:inputText id="cardNumber" value="#{cardController.selected.cardNumber}" title="#{bundle.EditCardTitle_cardNumber}" />
+                        <p:outputLabel value="#{bundle.EditCardLabel_ccv}" for="ccv" />
+                        <p:inputText id="ccv" value="#{cardController.selected.ccv}" title="#{bundle.EditCardTitle_ccv}" />
+                        <p:outputLabel value="#{bundle.EditCardLabel_expirationDate}" for="expirationDate" />
+                        <p:calendar id="expirationDate" pattern="MM/dd/yyyy" value="#{cardController.selected.expirationDate}" title="#{bundle.EditCardTitle_expirationDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCardLabel_company}" for="company" />
+                        <p:inputText id="company" value="#{cardController.selected.company}" title="#{bundle.EditCardTitle_company}" />
+                        <p:outputLabel value="#{bundle.EditCardLabel_user}" for="user" />
+                        <p:selectOneMenu id="user" value="#{cardController.selected.user}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{userController.itemsAvailableSelectOne}"
+                                           var="userItem"
+                                           itemValue="#{userItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cardController.update}" value="#{bundle.Save}" update="display,:CardListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CardEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CardEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
