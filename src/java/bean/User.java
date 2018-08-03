@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package bean;
 
 import java.io.Serializable;
@@ -17,8 +16,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
 /**
- * All rights reserved 
- * The source code is protected to its owner
+ * All rights reserved The source code is protected to its owner
  *
  * @author Abed
  */
@@ -26,7 +24,7 @@ import javax.persistence.Temporal;
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id    
+    @Id
     private String email;
     private String password;
     private String nom;
@@ -40,16 +38,12 @@ public class User implements Serializable {
     private String nationality;
     private String adress;
     private int zipCode;
-    
-    
-    
-    
-    
-    private boolean blocked;
-    private int nbrCnx;
-    private boolean mdpChanged;
-    private int isAdmin;
-    private int tentativeRest;      
+
+    private boolean blocked = false;
+    private int nbrCnx= 3;
+    private boolean mdpChanged= false;
+    private int isAdmin=0;
+    private int tentativeRest=5;
     @OneToOne(mappedBy = "user")
     private Card card;
 
@@ -93,7 +87,6 @@ public class User implements Serializable {
         this.card = card;
     }
 
-    
     public User(String email, String password, String nom, String prenom, String tel, String gender, Date dateNaissance, boolean blocked, int nbrCnx, boolean mdpChanged, int isAdmin, int tentativeRest) {
         this.email = email;
         this.password = password;
@@ -253,7 +246,6 @@ public class User implements Serializable {
         this.card = card;
     }
 
-    
     @Override
     public int hashCode() {
         int hash = 5;
@@ -283,5 +275,5 @@ public class User implements Serializable {
     public String toString() {
         return "User{" + "email=" + email + ", nom=" + nom + ", prenom=" + prenom + '}';
     }
-    
+
 }

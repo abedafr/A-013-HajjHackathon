@@ -22,6 +22,7 @@
                         <p:inputText id="company" value="#{cardController.selected.company}" title="#{bundle.CreateCardTitle_company}" />
                         <p:outputLabel value="#{bundle.CreateCardLabel_user}" for="user" />
                         <p:selectOneMenu id="user" value="#{cardController.selected.user}" >
+                            <f:selectItem value="#{null}" itemLabel="Null" itemValue="#{null}"/>
                             <f:selectItems value="#{userController.itemsAvailableSelectOne}"
                                            var="userItem"
                                            itemValue="#{userItem}"/>

@@ -44,6 +44,7 @@
                         <p:inputText id="zipCode" value="#{userController.selected.zipCode}" title="#{bundle.CreateUserTitle_zipCode}" />
                         <p:outputLabel value="#{bundle.CreateUserLabel_card}" for="card" />
                         <p:selectOneMenu id="card" value="#{userController.selected.card}" >
+                            <f:selectItem value="#{null}" itemLabel="Null" itemValue="#{null}" />
                             <f:selectItems value="#{cardController.itemsAvailableSelectOne}"
                                            var="cardItem"
                                            itemValue="#{cardItem}"/>

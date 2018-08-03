@@ -29,6 +29,7 @@ public class UserController implements Serializable {
     private User selected;
 
     public UserController() {
+        selected= new User();
     }
 
     public User getSelected() {
@@ -54,13 +55,17 @@ public class UserController implements Serializable {
         initializeEmbeddableKey();
         return selected;
     }
-
-    public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UserCreated"));
-        if (!JsfUtil.isValidationFailed()) {
-            items = null;    // Invalidate list of items to trigger re-query.
-        }
+    
+    public void create(){
+        ejbFacade.create(getSelected());
     }
+
+//    public void create() {
+//        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UserCreated"));
+//        if (!JsfUtil.isValidationFailed()) {
+//            items = null;    // Invalidate list of items to trigger re-query.
+//        }
+//    }
 
     public void update() {
         persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("UserUpdated"));

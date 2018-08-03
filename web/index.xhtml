@@ -1,27 +1,468 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
-        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <title>Hajj &mdash; Pay </title>
+        <meta name="description" content=""/>
+        <meta name="keywords" content=""/>
+        <meta charset="utf-8"/>
+        <meta name="author" content="A013 HAckathon"/>
+        <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="images/favicon.png"/>
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"/>
+
+        <!-- CSS -->
+        <h:outputStylesheet name="res/css/bootstrap.min.css"/>
+        <h:outputStylesheet name="res/css/style.css"/>
+        <h:outputStylesheet name="res/css/style-responsive.css"/>
+        <h:outputStylesheet name="res/css/animate.min.css"/>
+        <h:outputStylesheet name="res/css/vertical-rhythm.min.css"/>
+        <h:outputStylesheet name="res/css/owl.carousel.css"/>
+        <h:outputStylesheet name="res/css/magnific-popup.css"/>
+
+
+        <h:outputStylesheet name="res/css/colors/red.css"/>
+
     </h:head>
-    <h:body> 
-        Hello from Facelets
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
-        <br />
-        <h:link outcome="/card/List" value="Show All Card Items"/>
-        <br />
-        <h:link outcome="/purchase/List" value="Show All Purchase Items"/>
-        <br />
-        <h:link outcome="/transaction/List" value="Show All Transaction Items"/>
-        <br />
-        <h:link outcome="/user/List" value="Show All User Items"/>
+    <h:body class="appear-animate">
+
+
+        <!-- Page Wrap -->
+        <div class="page" id="top">
+
+            <!-- Navigation panel -->
+            <nav class="main-nav dark transparent stick-fixed">
+                <div class="full-wrapper relative clearfix">
+                    <!-- Logo ( * your text or image into link tag *) -->
+                    <div class="nav-logo-wrap local-scroll">
+                        <a href="#top" class="logo">
+                            <p:graphicImage value="/resources/res/images/logo-white.png" alt="" />
+                        </a>
+                    </div>
+                    <div class="mobile-nav">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                    <!-- Main Menu -->
+                    <div class="inner-nav desktop-nav">
+                        <ul class="clearlist scroll-nav local-scroll">
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#contact">Contact</a></li>
+
+
+                            <li>
+                                <a href="#"><span>Login</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span>I</span></a>
+                            </li>
+                            <li>
+                                <a href="./faces/user/Connection.xhtml"><span>Sign up</span></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!-- End Main Menu -->
+                </div>
+            </nav>
+            <!-- End Navigation panel -->
+
+            <!-- Home Section -->
+            <section class="home-section bg-color-alfa-90 parallax-3" data-background="./resources/res/images/section-bg-1.jpg" id="home">
+                <div class="js-height-full relative">
+
+                    <!-- Hero Content -->
+                    <div class="home-content">
+                        <div class="home-text">
+
+                            <h2 class="hs-line-11 mb-30 mb-xs-10">
+                                Hajj Pay <strong>Credit Card</strong>
+                            </h2>
+
+                            <h1 class="hs-line-9 mt-0 mb-50 mb-xs-20">
+                                Make a step Forward
+                            </h1>
+
+                            <div class="local-scroll">
+                                <a href="#about" class="btn btn-mod btn-large btn-w-color hidden-xs border-bottom ">Sign Up</a>
+                                <span class="hidden-xs">&nbsp;</span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- End Hero Content -->
+
+                    <!-- Scroll Down -->
+                    <div class="local-scroll">
+                        <a href="#about" class="scroll-down"><i class="fa fa-angle-down scroll-down-icon"></i></a>
+                    </div>
+                    <!-- End Scroll Down -->
+
+                </div>
+            </section>
+            <!-- End Home Section -->
+
+
+            <!-- Promo Section -->
+            <section class="split-section bg-gray">
+                <div class="clearfix relative">
+
+                    <!-- Section Headings -->
+                    <div class="row multi-columns-row mb-80 alt-features-grid-1">
+
+                        <div class="col-md-10 col-md-offset-1">
+
+                            <form class="form contact-form" id="contact_form" autocomplete="off">
+                                <div class="clearfix">
+
+                                    <div class="cf-left-col">
+
+                                        <!-- Name -->
+
+
+                                        <!-- Email -->
+                                        <div class="form-group">
+                                            <input type="email" name="email" id="email" class="input-lg form-control" placeholder="Email" pattern=".{5,100}" required="true"/>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="cf-right-col">
+
+                                        <!-- Password -->
+                                        <div class="form-group">                                            
+                                            <input type="password" name="password" id="password" class="input-lg form-control" placeholder="Password" pattern=".{5,100}" required="true"/>
+                                            <a href="#"> Forgot the password?</a>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="clearfix">
+
+                                    <div class="cf-left-col">
+
+                                        <!-- Inform Tip -->                                        
+                                        <div class="form-tip pt-20">
+                                            <i class="fa fa-info-circle"></i> All the fields are required
+                                        </div>
+
+                                    </div>
+
+                                    <div class="cf-right-col">
+
+                                        <!-- Send Button -->
+                                        <div class="align-right pt-10">
+                                            <button class="submit_btn btn btn-mod btn-color btn-large" id="submit_btn">Login</button>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div id="result"></div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- End Section Headings -->
+
+                <!-- Section Content -->
+
+
+            </section>
+        </div>
+        <!-- End Section Content -->
+
+        <!-- End Promo Section -->
+
+
+        <!-- About Section -->
+        <section class="page-section" id="about">
+            <div class="container relative">
+
+
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 align-center">
+
+
+                        <!-- Section Titles -->
+                        <div >
+                            
+
+                            <p:graphicImage class="logocolor" value="/resources/res/images/logocolor.png" alt="" />
+
+                        </div>
+                        <!-- End Section Titles -->
+
+
+                        <!-- Section Text -->
+                        <div class="section-text mb-80 mb-xs-50">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </div>
+                        <!-- End Section Text -->
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </section>
+        <!-- End About Section -->
+
+
+
+
+
+        <!-- Services Section -->
+        <section class="page-section" id="services">
+            <div class="container relative">
+
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 align-center">
+
+                        <!-- Section Titles -->
+
+                        <h2 class="section-heading">
+                            Why to Sign Up? 
+                        </h2>
+                        <!-- End Section Titles -->
+
+                        <div class="section-line mb-50 mb-xs-30"></div>
+
+                        <!-- Section Text -->
+
+
+
+                    </div>
+                </div>
+
+                <!-- Features Grid -->
+                <div class="row multi-columns-row alt-features-grid">
+
+                    <!-- Features Item -->
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="alt-features-item align-center">
+                            <div class="alt-features-icon color">
+                                <p:graphicImage value="/resources/res/images/money-bag.png" class="img-service "/>
+                            </div>
+
+                            <div class="alt-features-descr">
+                                Is erat nibh sit lectus. Dui penatibus quasi nec volutpat, ut adipiscing, hymenaeos est urna, ac purus convallis sed non, lectus id quisque. Sit ut id .
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Features Item -->
+
+                    <!-- Features Item -->
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="alt-features-item align-center">
+                            <div class="alt-features-icon color">
+                                <p:graphicImage value="/resources/res/images/robber.png" class="img-service "/>
+                            </div>
+
+                            <div class="alt-features-descr">
+                                Is erat nibh sit lectus. Dui penatibus quasi nec volutpat, ut adipiscing, hymenaeos est urna, ac purus convallis sed non, lectus id quisque. Sit ut id .
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Features Item -->
+
+                    <!-- Features Item -->
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="alt-features-item align-center">
+                            <div class="alt-features-icon color">
+                                <p:graphicImage value="/resources/res/images/change.png" class="img-service "/>
+                            </div>
+
+                            <div class="alt-features-descr">
+                                Is erat nibh sit lectus. Dui penatibus quasi nec volutpat, ut adipiscing, hymenaeos est urna, ac purus convallis sed non, lectus id quisque. Sit ut id .
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Features Item -->
+
+
+                </div>
+                <!-- End Features Grid -->
+
+
+
+
+            </div>
+
+
+
+
+
+
+            <!-- Feedback Form Section -->
+            <section class="page-section" id="contact">
+                <div class="container relative">
+
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 align-center">
+
+                            <!-- Section Titles -->
+                            <h1 class="section-title large">Want to talk?</h1>
+                            <h2 class="section-heading mb-40">Just Say Hello</h2>
+                            <!-- End Section Titles -->
+
+                        </div>
+                    </div>                    
+
+                    <!-- Contact Form -->                            
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+
+                            <form class="form contact-form" id="contact_form" autocomplete="off">
+                                <div class="clearfix">
+
+                                    <div class="cf-left-col">
+
+                                        <!-- Name -->
+                                        <div class="form-group">
+                                            <input type="text" name="name" id="name" class="input-lg form-control" placeholder="Name" pattern=".{3,100}" required="true"/>
+                                        </div>
+
+                                        <!-- Email -->
+                                        <div class="form-group">
+                                            <input type="email" name="email" id="email" class="input-lg form-control" placeholder="Email" pattern=".{5,100}" required="true"/>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="cf-right-col">
+
+                                        <!-- Message -->
+                                        <div class="form-group">                                            
+                                            <textarea name="message" id="message" class="input-lg form-control" style="height: 120px;" placeholder="Message"></textarea>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="clearfix">
+
+                                    <div class="cf-left-col">
+
+                                        <!-- Inform Tip -->                                        
+                                        <div class="form-tip pt-20">
+                                            <i class="fa fa-info-circle"></i> All the fields are required
+                                        </div>
+
+                                    </div>
+
+                                    <div class="cf-right-col">
+
+                                        <!-- Send Button -->
+                                        <div class="align-right pt-10">
+                                            <button class="submit_btn btn btn-mod btn-color btn-large" id="submit_btn">Send Message</button>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div id="result"></div>
+                            </form>
+
+                        </div>
+                    </div>
+                    <!-- End Contact Form -->
+
+                </div>
+            </section>
+            <!-- End Feedback Form Section -->
+
+
+            <!-- Foter -->
+            <footer class="small-section bg-dark footer pb-60">
+                <div class="container">
+
+                    <!-- Social Links -->
+                    <div class="footer-social-links mb-60 mb-xs-40">
+                        <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="#" title="Behance" target="_blank"><i class="fa fa-behance"></i></a>
+                        <a href="#" title="LinkedIn+" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        <a href="#" title="Pinterest" target="_blank"><i class="fa fa-pinterest"></i></a>
+                    </div>
+                    <!-- End Social Links -->  
+
+                    <!-- Footer Text -->
+                    <div class="footer-text">
+
+                        <!-- Copyright -->
+                        <div class="footer-copy">
+                            <a href="http://themeforest.net/user/theme-guru/portfolio" target="_blank">&copy; HajjPAy 2018</a>
+                        </div>
+                        <!-- End Copyright -->
+
+                        <div class="footer-made">
+                            HACKATHON 2018
+                        </div>
+
+                    </div>
+                    <!-- End Footer Text --> 
+
+                </div>
+
+
+                <!-- Top Link -->
+                <div class="local-scroll">
+                    <a href="#top" class="link-to-top"><i class="fa fa-caret-up"></i></a>
+                </div>
+                <!-- End Top Link -->
+
+            </footer>
+            <!-- End Foter -->
+
+        </section>
+        <!-- End Page Wrap -->
+
+        <!-- JS -->
+        <script type="text/javascript" src="./resources/res/js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="./resources/res/js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="./resources/res/js/bootstrap.min.js"></script>        
+        <script type="text/javascript" src="./resources/res/js/SmoothScroll.js"></script>
+        <script type="text/javascript" src="./resources/res/js/jquery.scrollTo.min.js"></script>
+        <script type="text/javascript" src="./resources/res/js/jquery.localScroll.min.js"></script>
+        <script type="text/javascript" src="./resources/res/js/jquery.viewport.mini.js"></script>
+        <script type="text/javascript" src="./resources/res/js/jquery.countTo.js"></script>
+        <script type="text/javascript" src="./resources/res/js/jquery.appear.js"></script>
+        <script type="text/javascript" src="./resources/res/js/jquery.sticky.js"></script>
+        <script type="text/javascript" src="./resources/res/js/jquery.parallax-1.1.3.js"></script>
+        <script type="text/javascript" src="./resources/res/js/jquery.fitvids.js"></script>
+        <script type="text/javascript" src="./resources/res/js/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="./resources/res/js/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="./resources/res/js/imagesloaded.pkgd.min.js"></script>
+        <script type="text/javascript" src="./resources/res/js/jquery.magnific-popup.min.js"></script>
+        <!-- Replace test API Key "AIzaSyAZsDkJFLS0b59q7cmW0EprwfcfUA8d9dg" with your own one below 
+        **** You can get API Key here - https://developers.google.com/maps/documentation/javascript/get-api-key -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZsDkJFLS0b59q7cmW0EprwfcfUA8d9dg"></script>
+        <script type="text/javascript" src="./resources/res/js/gmap3.min.js"></script>
+        <script type="text/javascript" src="./resources/res/js/wow.min.js"></script>
+        <script type="text/javascript" src="./resources/res/js/masonry.pkgd.min.js"></script>
+        <script type="text/javascript" src="./resources/res/js/jquery.simple-text-rotator.min.js"></script>
+        <script type="text/javascript" src="./resources/res/js/all.js"></script>
+        <script type="text/javascript" src="./resources/res/js/contact-form.js"></script>
+        <script type="text/javascript" src="./resources/res/js/jquery.ajaxchimp.min.js"></script>        
+        <!--[if lt IE 10]><script type="text/javascript" src="./resources/res/js/placeholder.js"></script><![endif]-->
     </h:body>
-
-
-
-
 </html>
 
